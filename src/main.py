@@ -23,7 +23,7 @@ class ResolutorEquacio:
     esquemes numèrics.
 
     Aquesta classe permet resoldre les equacions H i W mitjançant els esquemes explícit i
-    Crank-Nicholson, generar gràfics dels resultats i aplicar acotacions als intervals
+    Crank-Nicolson, generar gràfics dels resultats i aplicar acotacions als intervals
     de les solucions.
 
     Attributes
@@ -35,7 +35,7 @@ class ResolutorEquacio:
     run_explicit : bool
         Si és True, executa l'esquema explícit per a l'equació seleccionada.
     run_crank_nicolson : bool
-        Si és True, executa l'esquema Crank-Nicholson per a l'equació seleccionada.
+        Si és True, executa l'esquema Crank-Nicolson per a l'equació seleccionada.
 
     Methods
     -------
@@ -68,7 +68,7 @@ class ResolutorEquacio:
             Si és True, executa l'esquema explícit per a l'equació seleccionada.
             Per defecte és True.
         run_crank_nicolson : bool, optional
-            Si és True, executa l'esquema Crank-Nicholson per a l'equació seleccionada.
+            Si és True, executa l'esquema Crank-Nicolson per a l'equació seleccionada.
             Per defecte és True.
 
         Returns
@@ -105,7 +105,7 @@ class ResolutorEquacio:
         opcio : {'call', 'put'}
             Tipus d'opció: 'call' o 'put'.
         esquema : {'explicit', 'cn'}
-            Esquema utilitzat: 'explicit' o 'cn' (Crank-Nicholson).
+            Esquema utilitzat: 'explicit' o 'cn' (Crank-Nicolson).
         canvi_variable : bool, optional
             Indica si s'ha aplicat el canvi de variable. El valor per defecte és True.
         acotat : bool, optional
@@ -161,7 +161,7 @@ class ResolutorEquacio:
         opcio : {'call', 'put'}
             Tipus d'opció financera: 'call' o 'put'.
         esquema : {'explicit', 'cn'}
-            Esquema numèric a utilitzar: 'explicit' (explícit) o 'cn' (Crank-Nicholson).
+            Esquema numèric a utilitzar: 'explicit' (explícit) o 'cn' (Crank-Nicolson).
         graficar_no_acotat : bool, optional
             Indica si es generen gràfics per a les solucions no acotades.
             El valor per defecte és False.
@@ -281,7 +281,7 @@ class ResolutorEquacio:
         -----
         - Aquesta funció executa dos tipus d'esquemes numèrics:
         1. Esquema explícit.
-        2. Esquema Crank-Nicholson (CN).
+        2. Esquema Crank-Nicolson (CN).
         - Els esquemes es resolen tant per a opcions 'call' com 'put'.
         - Si l'opció `grafic_no_acotat` està activada en la configuració
          (`self.config`), es generen gràfics per a valors no acotats.
@@ -323,13 +323,13 @@ def main(
         Si és True, executa l'esquema explícit per a l'equació H.
         Per defecte és True.
     run_crank_nicolson_H : bool, optional
-        Si és True, executa l'esquema Crank-Nicholson per a l'equació H.
+        Si és True, executa l'esquema Crank-Nicolson per a l'equació H.
         Per defecte és True.
     run_explicit_W : bool, optional
         Si és True, executa l'esquema explícit per a l'equació W.
         Per defecte és True.
     run_crank_nicolson_W : bool, optional
-        Si és True, executa l'esquema Crank-Nicholson per a l'equació W.
+        Si és True, executa l'esquema Crank-Nicolson per a l'equació W.
         Per defecte és True.
 
     Returns
