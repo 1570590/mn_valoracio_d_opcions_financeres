@@ -198,13 +198,13 @@ main(
 
 ---
 
-## License
+## Llicència
 
 Aquest projecte està llicenciat sota la Llicència MIT.
 
 ---
 
-## Contributions
+## Contribucions
 
 Considera't lliure de bifurcar aquest repositori i enviar sol·licituds de pull per a millores o correccions.
 
@@ -216,6 +216,6 @@ Considera't lliure de bifurcar aquest repositori i enviar sol·licituds de pull 
 
 ---
 
-## Contact
+## Contacte
 
 Per a qualsevol dubte, contacteu 1570590uab@gmail.com.
