@@ -15,7 +15,7 @@ def esquema_crank_nicolson_W(
     opcio: str,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
-    Resol l'EDP per W(x, tau) usant l'esquema de Crank-Nicolson amb condicions
+    Resol l'EDP (3.11) per W(x, tau) usant l'esquema de Crank-Nicolson amb condicions
     de frontera i inicials per una opció call o put.
 
     Aquesta funció resol l'equació diferencial parcial per a una opció
