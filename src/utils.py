@@ -257,7 +257,7 @@ def path_grafic(esquema: str, equacio: str, nom_fitxer_2d: str) -> Tuple[str, st
     Tuple[str, str]
         Una tupla amb la ruta de la carpeta i la ruta completa del fitxer 2D.
     """
-    carpeta = os.path.join("data", "grafics", esquema, equacio)
+    carpeta = os.path.join("..", "data", "grafics", esquema, equacio)
 
     # Creem la carpeta si no existeix
     os.makedirs(carpeta, exist_ok=True)
