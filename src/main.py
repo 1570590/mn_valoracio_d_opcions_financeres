@@ -1,7 +1,7 @@
 """
 main pipeline
 """
-import math  # type: ignore
+import math  # noqa: F401
 from typing import Callable, Literal
 
 from src.esquemes.cn_H import esquema_crank_nicolson_H
@@ -19,10 +19,11 @@ from src.utils import (R_H, carregar_configuracio, desfer_canvi_variable_t,
 
 class ResolutorEquacio:
     """
-    Classe per a resoldre equacions diferencials parcials utilitzant esquemes numèrics.
+    Classe per a resoldre equacions diferencials parcials utilitzant
+    esquemes numèrics.
 
-    Aquesta classe permet resoldre les equacions H i W mitjançant els esquemes explícit i 
-    Crank-Nicholson, generar gràfics dels resultats i aplicar acotacions als intervals 
+    Aquesta classe permet resoldre les equacions H i W mitjançant els esquemes explícit i
+    Crank-Nicholson, generar gràfics dels resultats i aplicar acotacions als intervals
     de les solucions.
 
     Attributes
@@ -59,15 +60,15 @@ class ResolutorEquacio:
         Parameters
         ----------
         config : dict
-            Configuració carregada des d'un fitxer YAML amb els paràmetres necessaris per a 
+            Configuració carregada des d'un fitxer YAML amb els paràmetres necessaris per a
             la resolució.
         equacio : {'H', 'W'}
             Tipus d'equació a resoldre. Pot ser 'H' o 'W'.
         run_explicit : bool, optional
-            Si és True, executa l'esquema explícit per a l'equació seleccionada. 
+            Si és True, executa l'esquema explícit per a l'equació seleccionada.
             Per defecte és True.
         run_crank_nicolson : bool, optional
-            Si és True, executa l'esquema Crank-Nicholson per a l'equació seleccionada. 
+            Si és True, executa l'esquema Crank-Nicholson per a l'equació seleccionada.
             Per defecte és True.
 
         Returns
@@ -117,14 +118,8 @@ class ResolutorEquacio:
 
         Notes
         -----
-        La funció utilitza diferents funcions gràfiques basades en els paràmetres 
+        La funció utilitza diferents funcions gràfiques basades en els paràmetres
         `self.equacio` i `canvi_variable`.
-
-        Examples
-        --------
-        >>> self._generar_grafic([0.1, 0.2, 0.3], 0.5, 1.0, 'call', 'explicit', True, acotat=True)
-        Genera un gràfic acotat amb canvi de variable per l'equació definida a `self.equacio`,
-        amb esquema explícit i opció 'call'.
         """
         self.logger.log(
             (
@@ -168,26 +163,20 @@ class ResolutorEquacio:
         esquema : {'explicit', 'cn'}
             Esquema numèric a utilitzar: 'explicit' (explícit) o 'cn' (Crank-Nicholson).
         graficar_no_acotat : bool, optional
-            Indica si es generen gràfics per a les solucions no acotades. 
+            Indica si es generen gràfics per a les solucions no acotades.
             El valor per defecte és False.
 
         Returns
         -------
         None
-            Aquesta funció no retorna cap valor. Genera gràfics per a solucions acotades i 
+            Aquesta funció no retorna cap valor. Genera gràfics per a solucions acotades i
             no acotades.
 
         Notes
         -----
-        La funció utilitza esquemes numèrics específics segons l'equació (`self.equacio`) i 
+        La funció utilitza esquemes numèrics específics segons l'equació (`self.equacio`) i
         el tipus d'opció.
         També realitza canvis de variable i ajustos per obtenir solucions acotades.
-
-        Examples
-        --------
-        >>> self._resoldre_esquema_numeric('call', 'explicit', graficar_no_acotat=True)
-        Resol l'esquema explícit per a una opció 'call' i genera els gràfics corresponents, 
-        incloent-hi gràfics no acotats.
         """
         try:
             self.logger.log(
@@ -294,14 +283,8 @@ class ResolutorEquacio:
         1. Esquema explícit.
         2. Esquema Crank-Nicholson (CN).
         - Els esquemes es resolen tant per a opcions 'call' com 'put'.
-        - Si l'opció `grafic_no_acotat` està activada en la configuració (`self.config`), 
-            es generen gràfics per a valors no acotats.
-
-        Examples
-        --------
-        >>> self.resoldre_equacio('H')
-        Resol l'equació 'H' amb els esquemes explícit i Crank-Nicholson per a opcions 
-        'call' i 'put'.
+        - Si l'opció `grafic_no_acotat` està activada en la configuració
+         (`self.config`), es generen gràfics per a valors no acotats.
         """
         try:
             if self.run_explicit:
@@ -331,44 +314,34 @@ def main(
     run_crank_nicolson_W: bool = True,
 ) -> None:
     """
-    Funció principal per a la resolució de les equacions H i W mitjançant esquemes numèrics.
+    Funció principal per a la resolució de les equacions H i W mitjançant
+    esquemes numèrics.
 
     Parameters
     ----------
     run_explicit_H : bool, optional
-        Si és True, executa l'esquema explícit per a l'equació H. Per defecte és True.
+        Si és True, executa l'esquema explícit per a l'equació H.
+        Per defecte és True.
     run_crank_nicolson_H : bool, optional
-        Si és True, executa l'esquema Crank-Nicholson per a l'equació H. Per defecte és True.
+        Si és True, executa l'esquema Crank-Nicholson per a l'equació H.
+        Per defecte és True.
     run_explicit_W : bool, optional
-        Si és True, executa l'esquema explícit per a l'equació W. Per defecte és True.
+        Si és True, executa l'esquema explícit per a l'equació W.
+        Per defecte és True.
     run_crank_nicolson_W : bool, optional
-        Si és True, executa l'esquema Crank-Nicholson per a l'equació W. Per defecte és True.
+        Si és True, executa l'esquema Crank-Nicholson per a l'equació W.
+        Per defecte és True.
 
     Returns
     -------
     None
-        Aquesta funció no retorna cap valor. Configura i resol les equacions H i W 
-        amb els esquemes especificats.
-
-    Notes
-    -----
-    - La configuració es carrega des d'un fitxer YAML ubicat a `config/main.yaml`.
-    - Es crea una instància de `ResolutorEquacio` per a cadascuna de les equacions (H i W).
-    - La resolució s'efectua segons els paràmetres especificats a la crida de la funció.
-
-    Examples
-    --------
-    Executar tots els esquemes:
-    >>> main()
-
-    Executar només l'esquema explícit per a H i Crank-Nicholson per a W:
-    >>> main(run_explicit_H=True, run_crank_nicolson_H=False, run_explicit_W=False,
-        run_crank_nicolson_W=True)
+        Aquesta funció no retorna cap valor. Configura i resol
+        les equacions H i W amb els esquemes especificats.
     """
     logger.log("Iniciant el pipeline...", "info")
 
     # Carreguem la configuració des del fitxer YAML
-    config = carregar_configuracio("config/main.yaml")
+    config = carregar_configuracio("../config/main.yaml")
 
     try:
         # Creem instància del resolutor per a l'equació H
